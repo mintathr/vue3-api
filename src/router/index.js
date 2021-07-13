@@ -1,4 +1,4 @@
-/* create router adl suatu fungsi dmn kita akan mendefinikasi uri
+/* create router adl suatu fungsi dmn kita akan mendefinisikan uri
 atau path utk mengakses sebuah component
 createwebhistory adl mengaktifkan mode history */
 
@@ -23,11 +23,29 @@ const routes = [
         name: 'transaction.edit',
         component: () => import("../views/transaction/Edit.vue")
     },
+
+    {
+        path: '/post',
+        name: 'post.index',
+        component: () => import("../views/post/Index.vue")
+    },
+    {
+        path: '/post/create',
+        name: 'post.create',
+        component: () => import("../views/post/Create.vue")
+    },
+    {
+        //import hal edit
+        path: '/edit/:id',
+        name: 'post.edit',
+        component: () => import("../views/post/Edit.vue")
+    },
 ];
 
 //buat fungsi createrouter, dikumpulkan dgn const router
 const router = createRouter({
     history: createWebHistory(),
+    linkActiveClass: 'active',
     routes //variabel routes yg diatas
 });
 
